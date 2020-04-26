@@ -1,14 +1,17 @@
 package programs;
 
 public class ArmstrongNumber {
-	
+
 	public static int armstrongNumber(int input, int count) {
-		if(input > 0) {
+		
+		while(input > 0) {
 			int remainder = input % 10;
 			input = input/10;
 			count = (remainder * remainder * remainder) + count;
+//			return count;
 			return armstrongNumber(input, count);
 		}
+		
 		return count;
 	}
 	

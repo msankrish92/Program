@@ -13,35 +13,16 @@ public class CompareTwoStringForCommonCharacter {
 	 **/
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 
-		int totalIteration = sc.nextInt();
-//		boolean flag = false;
-		for (int i = 0; i < totalIteration; i++) {
-			boolean flag = false;
-			String firstWord = sc.next();
-			String secondWord = sc.next();
-//			char[] arr1 = firstWord.toCharArray();
-//			char[] arr2 = secondWord.toCharArray();
-//			for (int j = 0; j < arr1.length; j++) {
-//				for (int k = 0; k < arr2.length; k++) {
-//					if(arr1[j] == arr2[k]) {
-//						flag = true;
-//					}
-//				}
-//			}
-
-			for (char c : "abcdefghijklmnopqrstuvwxyz".toCharArray()) {
-				if (firstWord.indexOf(c) > -1 && secondWord.indexOf(c) > -1)
-					flag = true;
-			}
-			if (flag) {
-				System.out.println("YES");
-			} else {
-				System.out.println("NO");
+		String input1 = "ty";
+		String input2 = "Krishnan";
+		boolean found = false;
+		for(char a : "abczefghijklmnopqrstuvwxxyz".toCharArray()) {
+			if(input1.indexOf(a)>-1 && input2.indexOf(a)>-1) {
+				 found = true;
 			}
 		}
-
-	}
-
+		
+		System.out.println(found);
+}
 }
