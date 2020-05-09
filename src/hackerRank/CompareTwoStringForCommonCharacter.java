@@ -14,15 +14,16 @@ public class CompareTwoStringForCommonCharacter {
 
 	public static void main(String[] args) {
 
-		String input1 = "ty";
+		String input1 = "sanjay";
 		String input2 = "Krishnan";
-		boolean found = false;
-		for(char a : "abczefghijklmnopqrstuvwxxyz".toCharArray()) {
+		boolean flag = false;
+		for(char a : "abcdefghijklmnopqrstuvwxyz".toCharArray()) {
+			
 			if(input1.indexOf(a)>-1 && input2.indexOf(a)>-1) {
-				 found = true;
+				flag = true;
 			}
 		}
 		
-		System.out.println(found);
+		System.out.println(flag);
 }
 }

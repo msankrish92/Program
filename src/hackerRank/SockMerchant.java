@@ -2,8 +2,8 @@ package hackerRank;
 
 import java.util.HashMap;
 import java.util.Map;
-
-public class SockMerchant {
+ 
+public class SockMerchant extends Triplets {
 	
 	public static int sockPairs(int ar[]) {
 		int count = 0;
@@ -25,7 +25,11 @@ public class SockMerchant {
 		
 	}
 	
-
+	public  int findTriplets(int arr[], int r) {
+		return r;
+		
+		
+	}
 
 	public static void main(String[] args) {
 		int arr[] = {10,20,20,10,10,30,50,10,20};

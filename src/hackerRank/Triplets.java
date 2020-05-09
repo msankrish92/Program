@@ -4,45 +4,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Triplets {
-
-	public static void findTriplets(int arr[], int r) {
-		
-		Map<Integer, Integer> leftMap = new HashMap<Integer, Integer>();
-		Map<Integer, Integer> rightMap = new HashMap<Integer, Integer>();
-		
-		for(int i = 0; i < arr.length; i++) {
-			rightMap.put(arr[i], rightMap.getOrDefault(arr[i], 0) + 1);
-		}
-//		int c1 = 0,c2 = 0;
-		int count = 0;
-		
-		for (int i = 0; i < arr.length; i++) {
-			int c1 = 0,c2 = 0;
-			int midterm = arr[i];
-			System.out.println("MidTerm = " + midterm);
-			rightMap.put(midterm, rightMap.getOrDefault(midterm, 0)-1);
-			System.out.println(rightMap);
-			System.out.println(leftMap);
-			if(leftMap.containsKey(midterm/r) && midterm%r == 0) {
-				c1 = leftMap.get(midterm/r);
+	
+		public static int findTriplets(int arr[], int r) {
+			
+			Map<Integer,Integer> leftMap = new HashMap<Integer,Integer>();
+			Map<Integer,Integer> rightMap = new HashMap<Integer,Integer>();
+			int count = 0;
+			for (int i = 0; i < arr.length; i++) {
+				rightMap.put(arr[i], rightMap.getOrDefault(arr[i], 0)+1);
 			}
-			if(rightMap.containsKey(midterm*r)) {
-				c2 = rightMap.get(midterm * r);
+			
+			for (int i = 0; i < arr.length; i++) {
+				
+				int value = arr[i];
+				rightMap.put(value, rightMap.getOrDefault(value, 0)-1);
+				int c1 = 0, c2 = 0;
+				if(leftMap.containsKey(arr[i]/r)&&arr[i]/r>0) {
+					c1 = leftMap.get(arr[i]/r);
+				}
+				if(rightMap.containsKey(arr[i]*r)) {
+					c2 = rightMap.get(arr[i]*r);
+				}
+				
+				count  = (c1*c2) + count;
+			
+				leftMap.put(arr[i], leftMap.getOrDefault(arr[i], 0)+1);
+				for(Map.Entry<Integer, Integer> a : leftMap.entrySet()) {
+					System.out.println(a.getKey());
+				}
+				
 			}
-			count  = (c1*c2) + count;
-			leftMap.put(midterm, leftMap.getOrDefault(midterm, 0) + 1);
+			
+			return count;
+			
 		}
-		System.out.println(count);
-	}
 	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		int arr[] = {1,2,2,4};
-		int r = 2;
-		findTriplets(arr, r);
-	}
+		
 
+		public static void main(String[] args) {
+			int arr[] = {1,2,2,4};
+			System.out.println(findTriplets(arr, 2));
+		}
+		
 }

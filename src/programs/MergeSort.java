@@ -1,83 +1,72 @@
 package programs;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MergeSort {
+			
 	
-	public static void merge(List<Integer> list, int l, int m, int r) {
-		
+	
+	public static void merge(int arr[], int l, int m, int r) {
 		int n1 = m-l+1;
 		int n2 = r-m;
 		
-		List<Integer> LL = new ArrayList<Integer>();
-		List<Integer> RL = new ArrayList<Integer>();
+		int L[] = new int[n1];
+		int R[] = new int[n2];
 		
-		for(int i = 0; i < n1; i++) {
-			LL.add(list.get(l+i));
-			
+		for (int i = 0; i < n1; i++) {
+			L[i] = arr[l+i];
 		}
-		System.out.println(LL);
-		for(int j = 0; j < n2; j++) {
-			RL.add(list.get(m+1+j));
+		for (int j = 0; j < n2; j++) {
+			R[j] = arr[m+j+1];
 		}
-		System.out.println(RL);
 		
 		int i = 0, j = 0, k = l;
 		
 		while(i<n1&&j<n2) {
-			if(LL.get(i)<RL.get(j)) {
-				list.set(k, LL.get(i));
+			if(L[i]<R[j]) {
+				arr[k]=L[i];
 				i++;
 			}else {
-				list.set(k, RL.get(j));
+				arr[k] = R[j];
 				j++;
 			}
-			k++;
+				k++;
 		}
 		
 		
 		while(i<n1) {
-			list.set(k, LL.get(i));
+			arr[k] = L[i];
 			i++;
 			k++;
 		}
+		
 		while(j<n2) {
-			list.set(k, RL.get(j));
+			arr[k] = R[j];
 			j++;
 			k++;
 		}
-		
-		
-		
 	}
+	
 
 	
-	
-	
-	public static void sort(List<Integer> list, int l, int r) {
+	public static void sort(int arr[],int l, int r) {
 		if(l<r) {
 			int m = (l+r)/2;
-			sort(list,l,m);
-			sort(list,m+1,r);
-			merge(list,l,m,r);
+			sort(arr,l,m);
+			sort(arr,m+1,r);
+			merge(arr,l,m,r);
 			
 		}
+		
+		
 	}
-	
 	
 	
 	public static void main(String[] args) {
-	
-		List<Integer> list = new ArrayList<Integer>();
-		list.add(5);
-		list.add(8);
-		list.add(2);
-		list.add(1);
-		list.add(9);
+		int arr[] = {4,3,9,5,8,1,2};
 		
-		sort(list,0,list.size()-1);
-		
-		System.out.println(list);
+		sort(arr, 0, arr.length-1);
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
 	}
+	
 }

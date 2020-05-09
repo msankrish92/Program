@@ -1,24 +1,25 @@
 package programs;
 
 public class ArmstrongNumber {
-
-	public static int armstrongNumber(int input, int count) {
-		
-		while(input > 0) {
-			int remainder = input % 10;
+	
+	public static int findArmStrongNumber(int input) {
+		int remainder = 0;
+//		int qotiant = 0;
+		int count = 0;
+		while(input>0) {
+			remainder = input%10;
 			input = input/10;
-			count = (remainder * remainder * remainder) + count;
-//			return count;
-			return armstrongNumber(input, count);
+			count = (remainder*remainder*remainder)+count;
+			
+			findArmStrongNumber(input);		
+			
 		}
-		
 		return count;
 	}
 	
 	
+	
 	public static void main(String[] args) {
-		int input = 153;
-		System.out.println(armstrongNumber(input, 0));
+		System.out.println(findArmStrongNumber(153));
 	}
-		
 }
