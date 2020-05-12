@@ -4,12 +4,11 @@ public class Fibonacci {
 	
 	public static int findFibonacci(int input) {
 		
-		if(input==0||input==1) {
+		if(input == 0||input ==1) {
 			return input;
 		}
 		
 		return findFibonacci(input-1) + findFibonacci(input-2);
-		
 		
 	}
 	
