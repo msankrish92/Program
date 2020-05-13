@@ -7,58 +7,30 @@ import java.util.List;
 public class RepeatedString {
 
 	public static void main(String[] args) {
+	
+		String input = "aba";
+		long n = 10;
 		
-//		String arr[] = {"a","b","a"};
-//		
-		Long length = 1000000000000L;
-//		
-//		int j = 0;
-//		
-//		Long arr2[] = new Long[length];
-//		
-//		for (int i = 0; i < length; i++) {
-//			
-//			if(j>=arr.length) {
-//				j = 0;
-//			}
-//			arr2[i] = arr[j];
-//			j++;
-//		}
-//		
-//		int count = 0;
-//		for (int i = 0; i < arr2.length; i++) {
-//			if(arr2[i] == "a") {
-//				count += 1;
-//			}
-//		}
-//		System.out.println(count);
-//		
+		long A=0,B=0;
+		long p = n/input.length();
+		long r = n%input.length();
 		
-	String input = "aba";	
-	char[] charArray = input.toCharArray();
-	
-	List<Character> asList = new LinkedList<Character>();
-	int j = 0;
-	for (int i = 0; i < length; i++) {
-		if(j>=charArray.length) {
-			j = 0;
+		for (int i = 0; i < input.length(); i++) {
+			if(r>i) {
+				if((input.charAt(i) ^ 'a') == 0) {
+					A++;
+					B++;
+				}
+			}else	{
+				if((input.charAt(i) ^ 'a') == 0) {
+					A++;
+					
+			}
+			
+			}
+				
 		}
-		asList.add(charArray[j]);
-		System.out.println(asList.get(i));
-		j++;
+		System.out.println(A*p+B);
+		
 	}
-	Long count = 0L;
-	for (int i = 0; i < asList.size(); i++) {
-		if(asList.get(i)=='a') {
-			count += 1;
-		}
-	}
-	System.out.println(count);
-	}
-	
-	
-	
-
-
-
 }
