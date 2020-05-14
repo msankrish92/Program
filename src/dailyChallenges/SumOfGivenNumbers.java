@@ -7,9 +7,35 @@ public class SumOfGivenNumbers {
 //	. Write a java code to find the sum of the given numbers
 //	Input: "asdf1qwer9as8d7"
 //	output: 1+9+8+7 = 25
-//	2. Write a java program to do the following.
-//	Input: "When the world realise its own mistake, corona will dissolve automatically"
-//	output: "When eht world esilaer its nwo mistake, anoroc will evlossid automatically"
-//	3. Write a java program to find the number of Uppercase, lowercase, numbers and spaces in the following String.
-//	Input: "1. It is Work from Home  not Work for Home"
+
+
+	
+	public static void method1(String input) {
+		String replacedString = input.replaceAll("[\\D]", "");
+		int count = 0;
+		char[] charArray = replacedString.toCharArray();
+		
+		for (int i = 0; i < charArray.length; i++) {
+			count = count + Character.getNumericValue(charArray[i]);
+		}
+		System.out.println("Output of method1: " + count);
+	}
+	
+	public static void method2(String input) {
+		char[] ch = input.toCharArray();
+		int count = 0;
+		for(char a : ch) {
+			if(Character.isDigit(a)) {
+				count = count + Character.getNumericValue(a);
+			}
+		}
+		System.out.println("Output of method2: " + count);
+	}
+	
+	
+	public static void main(String[] args) {
+		String input = "asdf1qwer9as8d7";
+		method1(input);
+		method2(input);
+	}
 }
