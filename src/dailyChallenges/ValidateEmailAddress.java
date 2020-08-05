@@ -1,4 +1,4 @@
-package programs.dailyChallenges;
+package dailyChallenges;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,14 +18,14 @@ public class ValidateEmailAddress {
 //	(int) st.charAt(i) > 45
 	
 	public static void main(String[] args) {
-		String input = "balaji.chandrasekaran@testleaf.com";
-		String input2 = "naveen e@tl.com";
+		String input = "balaji.chandrasekaran@testleaf.c";
+//		String input2 = "naveen e@tl.c";
 		String regex = "[A-Za-z0-9._]+@[A-Za-z0-9]+.[A-Za-z]{2,}";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(input);
-		Matcher matcher2 = pattern.matcher(input2);
+//		Matcher matcher2 = pattern.matcher(input2);
 		System.out.println(matcher.matches());
-		System.out.println(matcher2.matches());
+//		System.out.println(matcher2.matches());
 		
 	}
 }
